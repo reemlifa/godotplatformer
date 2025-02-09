@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgbmawvot6kje"]
+
+[ext_resource type="PackedScene" uid="uid://df22dlkyhr403" path="res://pinkBackground.tscn" id="1_4hr4k"]
+[ext_resource type="FontFile" uid="uid://b8lyiiniobnnv" path="res://LuckiestGuy-Regular.ttf" id="2_4txn4"]
+[ext_resource type="Script" path="res://levelSelection.gd" id="3_aw41s"]
+
+[node name="mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" parent="." instance=ExtResource("1_4hr4k")]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 233.0
+offset_right = 696.0
+offset_bottom = 288.0
+theme_override_fonts/font = ExtResource("2_4txn4")
+theme_override_font_sizes/font_size = 40
+text = "Play my game"
+
+[node name="Levelsbutton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 339.0
+offset_right = 678.0
+offset_bottom = 386.0
+text = "Start"
+icon_alignment = 1
+script = ExtResource("3_aw41s")
+
+[connection signal="pressed" from="Levelsbutton" to="Levelsbutton" method="_on_pressed"]

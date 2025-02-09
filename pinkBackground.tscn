@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://df22dlkyhr403"]
+
+[ext_resource type="Texture2D" uid="uid://dboirxvx0vedi" path="res://Background/Pink.png" id="1_eqwda"]
+
+[node name="pinkBackground" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 657.0
+texture = ExtResource("1_eqwda")

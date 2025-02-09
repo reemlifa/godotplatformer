@@ -1,0 +1,146 @@
+[gd_scene load_steps=5 format=3 uid="uid://bop8ucxmkaqhe"]
+
+[ext_resource type="PackedScene" uid="uid://df22dlkyhr403" path="res://pinkBackground.tscn" id="1_cnsto"]
+[ext_resource type="FontFile" uid="uid://b8lyiiniobnnv" path="res://LuckiestGuy-Regular.ttf" id="2_bjxqt"]
+[ext_resource type="Script" path="res://level_button.gd" id="2_rn426"]
+[ext_resource type="Script" path="res://back_button.gd" id="3_2fp78"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="pinkBackground" parent="." instance=ExtResource("1_cnsto")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 646.0
+
+[node name="level1" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 280.0
+offset_top = 248.0
+offset_right = 350.0
+offset_bottom = 318.0
+text = "1"
+script = ExtResource("2_rn426")
+level_scene = "res://level1.tscn"
+
+[node name="level2" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 408.0
+offset_top = 248.0
+offset_right = 480.0
+offset_bottom = 319.0
+script = ExtResource("2_rn426")
+
+[node name="level3" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 536.0
+offset_top = 248.0
+offset_right = 606.0
+offset_bottom = 318.0
+script = ExtResource("2_rn426")
+
+[node name="level4" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 664.0
+offset_top = 248.0
+offset_right = 734.0
+offset_bottom = 318.0
+script = ExtResource("2_rn426")
+
+[node name="level5" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 792.0
+offset_top = 248.0
+offset_right = 862.0
+offset_bottom = 318.0
+script = ExtResource("2_rn426")
+
+[node name="level6" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 280.0
+offset_top = 368.0
+offset_right = 350.0
+offset_bottom = 438.0
+script = ExtResource("2_rn426")
+
+[node name="level7" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 408.0
+offset_top = 368.0
+offset_right = 478.0
+offset_bottom = 438.0
+script = ExtResource("2_rn426")
+
+[node name="level8" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 792.0
+offset_top = 368.0
+offset_right = 862.0
+offset_bottom = 438.0
+script = ExtResource("2_rn426")
+
+[node name="level9" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 536.0
+offset_top = 368.0
+offset_right = 606.0
+offset_bottom = 438.0
+script = ExtResource("2_rn426")
+
+[node name="level10" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 664.0
+offset_top = 368.0
+offset_right = 734.0
+offset_bottom = 438.0
+script = ExtResource("2_rn426")
+
+[node name="backButton" type="Button" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+layout_mode = 0
+offset_left = 536.0
+offset_top = 504.0
+offset_right = 606.0
+offset_bottom = 574.0
+text = "Back"
+script = ExtResource("3_2fp78")
+
+[node name="LevelSelection" type="Label" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 160.0
+offset_right = 728.0
+offset_bottom = 215.0
+theme_override_fonts/font = ExtResource("2_bjxqt")
+theme_override_font_sizes/font_size = 40
+text = "Level Selection"
+
+[connection signal="pressed" from="level1" to="level1" method="_on_pressed"]
+[connection signal="pressed" from="backButton" to="level1" method="_on_back_button_pressed"]

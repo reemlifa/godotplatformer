@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cswi0ca1s7pht"]
+
+[ext_resource type="Script" path="res://menu_button.gd" id="1_a8mq0"]
+
+[node name="menuButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 1
+script = ExtResource("1_a8mq0")
