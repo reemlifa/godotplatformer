@@ -1,15 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7uqa5mq33466"]
 
-[ext_resource type="Script" path="res://gameManager.gd" id="1_bi202"]
+[ext_resource type="Script" path="res://nextLevelButton.gd" id="1_bi202"]
 
-[node name="nextLevelButton" type="Node2D"]
-
-[node name="nextLevelButton" type="Button" parent="."]
-offset_left = 808.0
-offset_top = 16.0
-offset_right = 1024.0
-offset_bottom = 80.0
-text = "Next Level"
+[node name="nextLevelButton" type="Button"]
+offset_right = 64.0
+offset_bottom = 64.0
 script = ExtResource("1_bi202")
 
-[connection signal="pressed" from="nextLevelButton" to="nextLevelButton" method="_on_pressed"]
+[connection signal="pressed" from="." to="." method="_on_button_pressed"]

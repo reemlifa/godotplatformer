@@ -12,12 +12,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="pinkBackground" parent="." instance=ExtResource("1_cnsto")]
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 646.0
+metadata/_edit_lock_ = true
 
 [node name="level1" type="Button" parent="."]
 custom_minimum_size = Vector2(70, 70)
@@ -39,7 +41,10 @@ offset_left = 408.0
 offset_top = 248.0
 offset_right = 480.0
 offset_bottom = 319.0
+text = "2
+"
 script = ExtResource("2_rn426")
+level_scene = "res://level2.tscn"
 
 [node name="level3" type="Button" parent="."]
 custom_minimum_size = Vector2(70, 70)
@@ -143,4 +148,5 @@ theme_override_font_sizes/font_size = 40
 text = "Level Selection"
 
 [connection signal="pressed" from="level1" to="level1" method="_on_pressed"]
+[connection signal="pressed" from="level2" to="level1" method="_on_level_2_pressed"]
 [connection signal="pressed" from="backButton" to="level1" method="_on_back_button_pressed"]

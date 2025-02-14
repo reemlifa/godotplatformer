@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://bdjn2c5vksj6f"]
+[gd_scene load_steps=13 format=4 uid="uid://bdjn2c5vksj6f"]
 
 [ext_resource type="PackedScene" uid="uid://df22dlkyhr403" path="res://pinkBackground.tscn" id="1_6r7cb"]
 [ext_resource type="Texture2D" uid="uid://d3jcmsulq6u5h" path="res://tilelist.png" id="1_c8nug"]
-[ext_resource type="PackedScene" uid="uid://c46i2nvjmhlvy" path="res://menuPanel.tscn" id="2_0pijt"]
 [ext_resource type="PackedScene" uid="uid://6oepunm13x6j" path="res://player.tscn" id="2_p3mhj"]
 [ext_resource type="PackedScene" uid="uid://ql20j1n2xugs" path="res://winCollider.tscn" id="4_0ohx7"]
-[ext_resource type="PackedScene" uid="uid://cswi0ca1s7pht" path="res://menu_button.tscn" id="4_4ve5d"]
+[ext_resource type="PackedScene" uid="uid://bbebuf3pjsvfh" path="res://pause_menu.tscn" id="6_1g7hm"]
 [ext_resource type="PackedScene" uid="uid://c7uqa5mq33466" path="res://nextLevelButton.tscn" id="6_wve04"]
+[ext_resource type="PackedScene" uid="uid://bpyjdy2c55ovd" path="res://box.tscn" id="7_qnhhm"]
+[ext_resource type="PackedScene" uid="uid://cln2s0sqxhbdk" path="res://movingPlatform.tscn" id="8_uxep4"]
+[ext_resource type="PackedScene" uid="uid://cfys4qcp2gkvv" path="res://coin.tscn" id="9_blfds"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sp2ti"]
 
@@ -178,32 +180,44 @@ sources/0 = SubResource("TileSetAtlasSource_c0yya")
 position = Vector2(2, 3)
 
 [node name="background" parent="." instance=ExtResource("1_6r7cb")]
+metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 position = Vector2(-2, 5)
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAAAAAYAAAAGAAAAAAAAAAcAAAAGAAEAAAAAAAgAAAAGAAEAAAAAAAkAAAAGAAIAAAABAAYAAAAHAAAAAAABAAcAAAAHAAEAAAABAAgAAAAHAAEAAAABAAkAAAAHAAIAAAACAAYAAAAHAAAAAAACAAcAAAAHAAEAAAACAAgAAAAHAAEAAAACAAkAAAAHAAIAAAADAAYAAAAHAAAAAAADAAcAAAAHAAEAAAADAAgAAAAHAAEAAAADAAkAAAAHAAIAAAAEAAYAAAAHAAAAAAAEAAcAAAAHAAEAAAAEAAgAAAAHAAEAAAAEAAkAAAAHAAIAAAAFAAYAAAAHAAAAAAAFAAcAAAAHAAEAAAAFAAgAAAAHAAEAAAAFAAkAAAAHAAIAAAAGAAYAAAAIAAAAAAAGAAcAAAAIAAEAAAAGAAgAAAAIAAEAAAAGAAkAAAAIAAIAAAAIAAUAAAARAAEAAAAJAAUAAAATAAEAAAAMAAQAAAATAAEAAAAOAAMAAAARAAEAAAAPAAMAAAATAAEAAAACAAUAAAADAAMAAAALAAQAAAARAAEAAAARAAMAAAAIAAAAAAAQAAMAAAAGAAAAAAARAAQAAAAIAAEAAAARAAUAAAAIAAEAAAARAAYAAAAIAAEAAAARAAcAAAAIAAEAAAARAAgAAAAIAAEAAAARAAkAAAAIAAIAAAAQAAQAAAAGAAEAAAAQAAUAAAAGAAEAAAAQAAYAAAAGAAEAAAAQAAcAAAAGAAEAAAAQAAgAAAAGAAEAAAAQAAkAAAAGAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAAoAAAAGAAEAAAABAAoAAAAHAAEAAAACAAoAAAAHAAEAAAADAAoAAAAHAAEAAAAEAAoAAAAIAAEAAAAAAAkAAAAGAAAAAAABAAkAAAAHAAAAAAACAAkAAAAHAAAAAAADAAkAAAAHAAAAAAAEAAkAAAAIAAAAAAAFAAoAAAAGAAAAAAAGAAoAAAAHAAAAAAAHAAoAAAAHAAAAAAAIAAoAAAAHAAAAAAAJAAoAAAAHAAAAAAAKAAoAAAAHAAAAAAALAAoAAAAHAAAAAAAMAAoAAAAHAAAAAAANAAoAAAAIAAAAAAAOAAoAAAAGAAIAAAAPAAoAAAAHAAIAAAAQAAoAAAAHAAIAAAARAAoAAAAIAAIAAAAOAAkAAAAGAAEAAAAOAAgAAAAGAAAAAAAPAAgAAAAHAAAAAAAQAAgAAAAHAAAAAAARAAgAAAAIAAAAAAARAAkAAAAIAAEAAAAPAAkAAAAHAAEAAAAQAAkAAAAHAAEAAAAAAAYAAAAGAAIAAAAFAAYAAAAIAAIAAAABAAYAAAAHAAIAAAACAAYAAAAHAAIAAAADAAYAAAAHAAIAAAAEAAYAAAAHAAIAAAAAAAUAAAAGAAEAAAAAAAQAAAAGAAEAAAAAAAMAAAAGAAAAAAAFAAMAAAAIAAAAAAAFAAQAAAAIAAEAAAAFAAUAAAAIAAEAAAABAAMAAAAIAAAAAAABAAQAAAAIAAEAAAABAAUAAAAIAAEAAAADAAMAAAAGAAAAAAADAAQAAAAGAAEAAAADAAUAAAAGAAEAAAAEAAMAAAAHAAAAAAAEAAQAAAAHAAEAAAAEAAUAAAAHAAEAAAALAAcAAAARAAEAAAAMAAcAAAATAAEAAAAJAAYAAAARAAEAAAAKAAYAAAATAAEAAAA=")
 tile_set = SubResource("TileSet_2jum7")
 
+[node name="nextLevelButton" parent="." instance=ExtResource("6_wve04")]
+offset_left = 1046.0
+offset_top = 29.0
+offset_right = 1110.0
+offset_bottom = 93.0
+
 [node name="winCollider" parent="." instance=ExtResource("4_0ohx7")]
-position = Vector2(1086, 133)
+position = Vector2(214, 509)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_p3mhj")]
-position = Vector2(174, 339)
+position = Vector2(110, 541)
 scale = Vector2(2, 2)
 
-[node name="nextLevelButton" parent="." instance=ExtResource("6_wve04")]
-position = Vector2(-26, 29)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="menuButton" parent="." instance=ExtResource("4_4ve5d")]
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 78.0
-offset_bottom = 77.0
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_1g7hm")]
+offset_left = 16.0
+offset_top = 8.0
+offset_bottom = 56.0
+metadata/_edit_lock_ = true
 
-[node name="menuPanel" parent="menuButton" instance=ExtResource("2_0pijt")]
-offset_left = 392.0
-offset_top = 160.0
-offset_right = 392.0
-offset_bottom = 160.0
+[node name="box" parent="." instance=ExtResource("7_qnhhm")]
+position = Vector2(414, 605)
+
+[node name="Node2D" parent="." instance=ExtResource("8_uxep4")]
+position = Vector2(470, 333)
+
+[node name="coin2" parent="." instance=ExtResource("9_blfds")]
+position = Vector2(638, 349)
+
+[node name="coin" parent="." instance=ExtResource("9_blfds")]
+position = Vector2(414, 533)

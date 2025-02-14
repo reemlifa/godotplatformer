@@ -18,3 +18,7 @@ func _on_pressed():
 	else:
 		print("Error: No level assigned!")
 		
+
+
+func _on_level_2_pressed() -> void:
+	pass # Replace with function body.
