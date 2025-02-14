@@ -4,17 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://cbqmt2hnf3w5" path="res://Idle.png" id="1_nh5m3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjvcj"]
-size = Vector2(48, 49)
+size = Vector2(36.5, 40)
 
 [node name="box" type="RigidBody2D"]
 mass = 2.015
 script = ExtResource("1_2rq57")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_gjvcj")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -1.90735e-06)
-scale = Vector2(2.78571, 2.83333)
+position = Vector2(32, 32)
+scale = Vector2(2.92411, 2.84375)
 texture = ExtResource("1_nh5m3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 24)
+shape = SubResource("RectangleShape2D_gjvcj")

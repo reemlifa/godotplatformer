@@ -75,9 +75,9 @@ script = ExtResource("1_vmrvo")
 
 [node name="Player" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-2.84217e-14, 5.68434e-14)
+position = Vector2(-2.38419e-07, 0)
 rotation = 3.14159
-scale = Vector2(1.67583, -1.76009)
+scale = Vector2(1.47336, -1.4564)
 sprite_frames = SubResource("SpriteFrames_onm2a")
 animation = &"jump"
 
@@ -85,12 +85,12 @@ animation = &"jump"
 shape = SubResource("RectangleShape2D_3xwy1")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 100)
+target_position = Vector2(128, 0)
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1.52588e-05, 0)
+position = Vector2(3.8147e-06, 0)
 scale = Vector2(3, 3.04)
 shape = SubResource("CircleShape2D_l5p3l")
 

@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 func _integrate_forces(state):
+	# Reduce velocity gradually to prevent excessive sliding
 	if linear_velocity.length() > 0:
 		linear_velocity = linear_velocity.lerp(Vector2.ZERO, state.step)
 
