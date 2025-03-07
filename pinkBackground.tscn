@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://df22dlkyhr403"]
+[gd_scene load_steps=2 format=3 uid="uid://cpqob4mcdtfdq"]
 
-[ext_resource type="Texture2D" uid="uid://dboirxvx0vedi" path="res://Background/Pink.png" id="1_eqwda"]
+[ext_resource type="Texture2D" uid="uid://ck1p8hmc53qyt" path="res://Untitled design (3).png" id="1_l1p4k"]
 
 [node name="pinkBackground" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1154.0
 offset_bottom = 657.0
-texture = ExtResource("1_eqwda")
+texture = ExtResource("1_l1p4k")

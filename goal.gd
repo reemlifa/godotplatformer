@@ -1,34 +1,20 @@
 extends Area2D
 
-@onready var success_ui = get_tree().get_first_node_in_group("success_ui")  # Find UI
-@onready var nextLevelButton = get_node_or_null("/root/Root/nextLevelButton")  # Ensure correct path
-
-func _ready():
-	call_deferred("_hide_next_level_button")
-
-func _hide_next_level_button():
-	if nextLevelButton:
-		nextLevelButton.hide()
-		print("nextLevelButton hidden at start")
-	else:
-		print("Error: nextLevelButton not found!")
+@export var player: CharacterBody2D  # Assign the player in the Inspector
+var current_level_index = 1 
 
 func _on_body_entered(body):
-	if body is CharacterBody2D:
-		print("Level Complete! Stopping player and showing Next Level Button...")
+	if body is CharacterBody2D and body.has_key:  # Check if the player has the key
+		print("Level Complete!")
+		load_next_level()
 
-		# Stop player movement
-		if body.has_method("stop_movement"):
-			body.stop_movement()
-		else:
-			body.velocity = Vector2.ZERO
-			body.set_physics_process(false)
+func load_next_level():
+	current_level_index += 1
+	var next_level_path = "res://level" + str(current_level_index) + ".tscn"
+	print("Trying to load:", next_level_path)
 
-		# Show Next Level Button
-		show_next_level_button()
-
-func show_next_level_button():
-	if nextLevelButton:
-		nextLevelButton.show()
+	if FileAccess.file_exists(next_level_path):
+		print("Level exists, loading...")
+		get_tree().call_deferred("change_scene_to_file", next_level_path)
 	else:
-		print("Error: Could not find nextLevelButton!")
+		print("No more levels! You reached the end.")

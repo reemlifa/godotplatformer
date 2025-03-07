@@ -1,21 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpyjdy2c55ovd"]
+[gd_scene load_steps=4 format=3 uid="uid://cp0jwxrqqrq8"]
 
-[ext_resource type="Script" path="res://box.gd" id="1_2rq57"]
-[ext_resource type="Texture2D" uid="uid://cbqmt2hnf3w5" path="res://Idle.png" id="1_nh5m3"]
+[ext_resource type="Texture2D" uid="uid://bpbidm724wltg" path="res://Idle.png" id="1_nh5m3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjvcj"]
-size = Vector2(36.5, 40)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_okuj3"]
+friction = 0.7
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_842cg"]
+size = Vector2(50, 50)
 
 [node name="box" type="RigidBody2D"]
-mass = 2.015
-script = ExtResource("1_2rq57")
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_okuj3")
+can_sleep = false
+lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(32, 32)
-scale = Vector2(2.92411, 2.84375)
+position = Vector2(16, 16)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_nh5m3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(32, 24)
-shape = SubResource("RectangleShape2D_gjvcj")
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_842cg")

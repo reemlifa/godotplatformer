@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://bt7esvd6h6fxs"]
+
+[ext_resource type="Script" uid="uid://4h8lyo7ijw4j" path="res://falling_platform.gd" id="1_uan1j"]
+[ext_resource type="Texture2D" uid="uid://bj0bdwc8lk7cw" path="res://On (32x10).png" id="2_xkfdu"]
+[ext_resource type="Texture2D" uid="uid://8sx7nxvjq2tm" path="res://Off.png" id="3_qp30q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lav87"]
+atlas = ExtResource("2_xkfdu")
+region = Rect2(0, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjrmb"]
+atlas = ExtResource("3_qp30q")
+region = Rect2(0, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlmi5"]
+atlas = ExtResource("2_xkfdu")
+region = Rect2(0, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vul8o"]
+atlas = ExtResource("2_xkfdu")
+region = Rect2(32, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqosv"]
+atlas = ExtResource("2_xkfdu")
+region = Rect2(64, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6d2s"]
+atlas = ExtResource("2_xkfdu")
+region = Rect2(96, 0, 32, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rqodl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lav87")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjrmb")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlmi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vul8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqosv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6d2s")
+}],
+"loop": true,
+"name": &"shake",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e18h"]
+size = Vector2(104, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqfoc"]
+size = Vector2(120.5, 48.5)
+
+[node name="FallingPlatform1" type="StaticBody2D"]
+script = ExtResource("1_uan1j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(62, 26.75)
+scale = Vector2(3.625, 4.25)
+sprite_frames = SubResource("SpriteFrames_rqodl")
+animation = &"shake"
+frame = 2
+frame_progress = 0.539311
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(60, 27)
+shape = SubResource("RectangleShape2D_2e18h")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(59.75, 23.75)
+shape = SubResource("RectangleShape2D_hqfoc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

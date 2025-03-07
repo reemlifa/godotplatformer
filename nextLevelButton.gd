@@ -14,7 +14,3 @@ func load_next_level():
 		get_tree().change_scene_to_file(next_level_path)
 	else:
 		print("No more levels! You reached the end.")
-
-func _on_button_pressed() -> void:
-	print("Button clicked!")  # Debug message
-	load_next_level()

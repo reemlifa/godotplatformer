@@ -1,13 +1,16 @@
-[gd_scene load_steps=12 format=4 uid="uid://dsmsrhklnilap"]
+[gd_scene load_steps=15 format=4 uid="uid://dsmsrhklnilap"]
 
-[ext_resource type="PackedScene" uid="uid://df22dlkyhr403" path="res://pinkBackground.tscn" id="1_mges8"]
-[ext_resource type="Texture2D" uid="uid://d3jcmsulq6u5h" path="res://tilelist.png" id="2_joowg"]
-[ext_resource type="PackedScene" uid="uid://6oepunm13x6j" path="res://player.tscn" id="4_qd2kl"]
-[ext_resource type="PackedScene" uid="uid://bpyjdy2c55ovd" path="res://box.tscn" id="4_qnffp"]
-[ext_resource type="PackedScene" uid="uid://cln2s0sqxhbdk" path="res://movingPlatform.tscn" id="5_g1f64"]
-[ext_resource type="PackedScene" uid="uid://bbebuf3pjsvfh" path="res://pause_menu.tscn" id="6_3rwv5"]
-[ext_resource type="PackedScene" uid="uid://c7uqa5mq33466" path="res://nextLevelButton.tscn" id="7_lxtw4"]
-[ext_resource type="PackedScene" uid="uid://ql20j1n2xugs" path="res://winCollider.tscn" id="8_tu365"]
+[ext_resource type="PackedScene" uid="uid://cpqob4mcdtfdq" path="res://pinkBackground.tscn" id="1_mges8"]
+[ext_resource type="Texture2D" uid="uid://c2kncohhfdqo1" path="res://tilelist.png" id="2_joowg"]
+[ext_resource type="PackedScene" uid="uid://b8omiggahmq1o" path="res://ladder.tscn" id="3_8i3m3"]
+[ext_resource type="PackedScene" uid="uid://ctgaihurxd88" path="res://player.tscn" id="4_qd2kl"]
+[ext_resource type="PackedScene" uid="uid://dxmiv5xo7jy4g" path="res://pause_menu.tscn" id="6_3rwv5"]
+[ext_resource type="PackedScene" uid="uid://b7024qsahytlf" path="res://winCollider.tscn" id="8_tu365"]
+[ext_resource type="PackedScene" uid="uid://coa0vlf8v1j8v" path="res://spike.tscn" id="9_jaggy"]
+[ext_resource type="PackedScene" uid="uid://basbxvflbmt2r" path="res://key.tscn" id="10_r8epj"]
+[ext_resource type="PackedScene" uid="uid://so54eiqfmyuv" path="res://breakingPlatform.tscn" id="11_3opl0"]
+[ext_resource type="PackedScene" uid="uid://by11osa2far02" path="res://pinkLever.tscn" id="11_dc5vx"]
+[ext_resource type="PackedScene" uid="uid://bsmua2jobdeqi" path="res://door.tscn" id="12_dgtrq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o5ikp"]
 
@@ -187,31 +190,74 @@ position = Vector2(-1, 0)
 texture_filter = 1
 position = Vector2(-1, 0)
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAABAAoAAAAHAAAAAAACAAoAAAAHAAAAAAADAAoAAAAHAAAAAAAEAAoAAAAHAAAAAAAFAAoAAAAHAAAAAAAGAAoAAAAHAAAAAAAHAAoAAAAHAAAAAAAIAAoAAAAHAAAAAAAJAAoAAAAHAAAAAAAKAAoAAAAHAAAAAAALAAoAAAAHAAAAAAAMAAoAAAAHAAAAAAAOAAoAAAAHAAAAAAAPAAoAAAAHAAAAAAAQAAoAAAAHAAAAAAANAAoAAAAHAAAAAAARAAoAAAAIAAAAAAAHAAcAAAAMAAUAAAAIAAcAAAAMAAUAAAAJAAcAAAAMAAUAAAAKAAcAAAAMAAUAAAALAAcAAAAMAAUAAAAMAAcAAAAMAAUAAAANAAcAAAAMAAUAAAAOAAcAAAAMAAUAAAAPAAcAAAAMAAUAAAAOAAQAAAAMAAUAAAANAAQAAAAMAAUAAAAMAAQAAAAMAAUAAAALAAQAAAAMAAUAAAAKAAQAAAAMAAUAAAAJAAQAAAAMAAUAAAAIAAQAAAAMAAUAAAAHAAQAAAAMAAUAAAAGAAQAAAAMAAUAAAAFAAQAAAAMAAUAAAAEAAQAAAAMAAUAAAADAAQAAAAMAAUAAAACAAQAAAAMAAUAAAABAAQAAAAMAAUAAAAAAAQAAAAMAAUAAAAPAAQAAAAMAAUAAAADAAMAAAAMAAUAAAACAAIAAAAMAAUAAAABAAIAAAAMAAUAAAABAAMAAAAMAAUAAAACAAMAAAAMAAUAAAAAAAMAAAAMAAUAAAAAAAIAAAAMAAUAAAAAAAEAAAAMAAUAAAAAAAAAAAAMAAUAAAAPAAMAAAAMAAUAAAAPAAIAAAAMAAUAAAAOAAMAAAAMAAUAAAD//woAAAAMAAUAAAD//wkAAAAMAAUAAAD//wgAAAAMAAUAAAD//wcAAAAMAAUAAAD//wYAAAAMAAUAAAD//wUAAAAMAAUAAAD//wQAAAAMAAUAAAD//wMAAAAMAAUAAAAGAAcAAAAMAAUAAAAFAAcAAAAMAAUAAAAEAAcAAAAMAAUAAAAAAAoAAAAMAAUAAAAAAAkAAAAMAAUAAAASAAoAAAAMAAUAAAASAAkAAAAMAAUAAAASAAgAAAAMAAUAAAASAAcAAAAMAAUAAAADAAcAAAARAAEAAAA=")
+tile_map_data = PackedByteArray("AAACAAoAAAAHAAAAAAABAAoAAAAHAAAAAAAAAAoAAAAHAAAAAAADAAoAAAAHAAAAAAAEAAkAAAARAAEAAAAFAAkAAAARAAEAAAAEAAoAAAAHAAAAAAAFAAoAAAAHAAAAAAAGAAoAAAAHAAAAAAAGAAkAAAAHAAAAAAAHAAoAAAAHAAAAAAAIAAoAAAAHAAAAAAAJAAoAAAAHAAAAAAAKAAoAAAAHAAAAAAALAAoAAAAHAAAAAAAMAAoAAAAHAAAAAAANAAoAAAAHAAAAAAAOAAoAAAAHAAAAAAAPAAoAAAAHAAAAAAAPAAkAAAAHAAAAAAAQAAcAAAAHAAEAAAAQAAgAAAAHAAEAAAAQAAkAAAAHAAEAAAARAAkAAAAHAAEAAAARAAoAAAAHAAEAAAAQAAoAAAAHAAEAAAARAAcAAAAHAAEAAAARAAgAAAAHAAEAAAAPAAgAAAAHAAEAAAAPAAcAAAAHAAEAAAAJAAMAAAAHAAEAAAANAAIAAAARAAEAAAAOAAMAAAARAAEAAAAPAAMAAAARAAEAAAAMAAIAAAARAAEAAAALAAIAAAAHAAEAAAAKAAIAAAAHAAEAAAAIAAMAAAAHAAEAAAAHAAMAAAAHAAEAAAAGAAIAAAAHAAEAAAAFAAIAAAAHAAEAAAAEAAMAAAAHAAEAAAADAAMAAAAHAAEAAAACAAMAAAAHAAEAAAABAAIAAAAHAAEAAAABAAYAAAAHAAEAAAAAAAYAAAAHAAEAAAACAAUAAAAHAAEAAAACAAQAAAAHAAEAAAA=")
 tile_set = SubResource("TileSet_c8rmi")
 
-[node name="nextLevelButton" parent="." instance=ExtResource("7_lxtw4")]
-offset_left = 1048.0
-offset_top = 16.0
-offset_right = 1112.0
-offset_bottom = 80.0
-
-[node name="Node2D2" parent="." instance=ExtResource("8_tu365")]
-position = Vector2(88, 64)
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_qd2kl")]
-position = Vector2(1080, 512)
-scale = Vector2(3.24, 3.16)
+position = Vector2(192, 600)
+scale = Vector2(2, 2)
 
-[node name="Node2D" parent="." instance=ExtResource("5_g1f64")]
-position = Vector2(1112, 280)
+[node name="Ladder" parent="." instance=ExtResource("3_8i3m3")]
+position = Vector2(1104, 296)
+scale = Vector2(4.65484, 6.24006)
+
+[node name="Spike" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(608, 568)
+
+[node name="Spike2" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(752, 568)
+
+[node name="Spike3" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(704, 568)
+
+[node name="Spike6" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(848, 568)
+
+[node name="Spike8" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(896, 568)
+
+[node name="Spike11" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(936, 568)
+
+[node name="Spike4" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(656, 568)
+
+[node name="Spike7" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(800, 568)
+
+[node name="Spike5" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(560, 568)
+
+[node name="Spike9" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(512, 568)
+
+[node name="Spike10" parent="." instance=ExtResource("9_jaggy")]
+position = Vector2(480, 568)
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_3rwv5")]
 offset_left = 512.0
 offset_top = 240.0
 offset_right = 640.0
 offset_bottom = 432.0
+metadata/_edit_lock_ = true
 
-[node name="box" parent="." instance=ExtResource("4_qnffp")]
-position = Vector2(72, 568)
-lock_rotation = true
+[node name="Key" parent="." instance=ExtResource("10_r8epj")]
+position = Vector2(16, 576)
+
+[node name="Door" parent="." instance=ExtResource("12_dgtrq")]
+position = Vector2(96, 552)
+
+[node name="winCollider" parent="." instance=ExtResource("8_tu365")]
+position = Vector2(56, 320)
+
+[node name="breakingPlatform" parent="." instance=ExtResource("11_3opl0")]
+position = Vector2(448, 496)
+
+[node name="breakingPlatform2" parent="." instance=ExtResource("11_3opl0")]
+position = Vector2(808, 416)
+
+[node name="breakingPlatform3" parent="." instance=ExtResource("11_3opl0")]
+position = Vector2(624, 456)
+
+[node name="pinkLever" parent="." instance=ExtResource("11_dc5vx")]
+position = Vector2(352, 80)

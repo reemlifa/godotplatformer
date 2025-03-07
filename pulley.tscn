@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://di3p8vxjwd5nb"]
+
+[ext_resource type="Script" uid="uid://b3vaopjul3ty6" path="res://pulley.gd" id="1_myt62"]
+[ext_resource type="Texture2D" uid="uid://c4sdhcqol30fn" path="res://tilelist (2).png" id="1_y5vpa"]
+[ext_resource type="Texture2D" uid="uid://bpu3kp5jox2o3" path="res://pulley_wheel.png" id="2_myt62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sln2"]
+size = Vector2(40, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqa3b"]
+size = Vector2(40, 5)
+
+[node name="pulley" type="Node2D"]
+script = ExtResource("1_myt62")
+
+[node name="pulley-platform1" type="AnimatableBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pulley-platform1"]
+position = Vector2(160, 120)
+shape = SubResource("RectangleShape2D_5sln2")
+
+[node name="Sprite2D" type="Sprite2D" parent="pulley-platform1"]
+texture_filter = 1
+position = Vector2(160, 128)
+scale = Vector2(1.21429, 1.5)
+texture = ExtResource("1_y5vpa")
+
+[node name="Area2D" type="Area2D" parent="pulley-platform1"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="pulley-platform1/Area2D"]
+position = Vector2(32, 104)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_eqa3b")
+
+[node name="pulley-platform2" type="AnimatableBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pulley-platform2"]
+position = Vector2(32, 104)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_eqa3b")
+
+[node name="Sprite2D" type="Sprite2D" parent="pulley-platform2"]
+texture_filter = 1
+position = Vector2(32, 112)
+scale = Vector2(1.21429, 1.5)
+texture = ExtResource("1_y5vpa")
+
+[node name="Area2D2" type="Area2D" parent="pulley-platform2"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="pulley-platform2/Area2D2"]
+position = Vector2(160, 120)
+shape = SubResource("RectangleShape2D_5sln2")
+
+[node name="Rope" type="Line2D" parent="."]
+points = PackedVector2Array(32, 48, 32, 0, 160, 0, 160, 104)
+
+[node name="pulley_wheel1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_myt62")
+
+[node name="pulley_wheel2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(160, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_myt62")
+
+[connection signal="body_entered" from="pulley-platform1/Area2D" to="." method="_on_platform2_area_body_entered"]
+[connection signal="body_exited" from="pulley-platform1/Area2D" to="." method="_on_platform2_area_body_exited"]
+[connection signal="body_entered" from="pulley-platform2/Area2D2" to="." method="_on_platform1_area_body_entered"]
+[connection signal="body_exited" from="pulley-platform2/Area2D2" to="." method="_on_platform1_area_body_exited"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://ctgaihurxd88"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_cvtl6"]
+[ext_resource type="Texture2D" path="res://creature-sheet.png" id="2_86n31"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d0a3"]
+atlas = ExtResource("2_86n31")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o4mx"]
+atlas = ExtResource("2_86n31")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blecj"]
+atlas = ExtResource("2_86n31")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc70u"]
+atlas = ExtResource("2_86n31")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq6vg"]
+atlas = ExtResource("2_86n31")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm7br"]
+atlas = ExtResource("2_86n31")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onm2a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d0a3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o4mx")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blecj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc70u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq6vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm7br")
+}],
+"loop": true,
+"name": &"run",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xwy1"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5p3l"]
+radius = 7.99999
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+collision_mask = 3
+script = ExtResource("1_cvtl6")
+
+[node name="Player" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.38419e-07, 0)
+rotation = 3.14159
+scale = Vector2(1.47336, -1.4564)
+sprite_frames = SubResource("SpriteFrames_onm2a")
+animation = &"jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3xwy1")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 80)
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(3, 3.04)
+shape = SubResource("CircleShape2D_l5p3l")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

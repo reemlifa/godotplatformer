@@ -1,18 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ql20j1n2xugs"]
+[gd_scene load_steps=3 format=3 uid="uid://b7024qsahytlf"]
 
-[ext_resource type="Script" path="res://goal.gd" id="1_6hugv"]
-[ext_resource type="Texture2D" uid="uid://deybyqoam5jlk" path="res://End (Idle).png" id="2_265mu"]
+[ext_resource type="Script" uid="uid://or6kkhe0yfji" path="res://goal.gd" id="1_s2tq5"]
+[ext_resource type="Texture2D" uid="uid://egoawl8aor8r" path="res://End (Idle).png" id="2_mrhqw"]
 
-[node name="Node2D" type="Node2D"]
+[node name="winCollider" type="Area2D"]
+script = ExtResource("1_s2tq5")
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("1_6hugv")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(8, 16, 56, 16, 56, 64, 8, 64)
 
-[node name="End" type="Sprite2D" parent="Area2D"]
+[node name="End" type="Sprite2D" parent="."]
 position = Vector2(32, 32)
-texture = ExtResource("2_265mu")
+texture = ExtResource("2_mrhqw")
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

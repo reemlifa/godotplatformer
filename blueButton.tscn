@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dum3271jeckrq"]
+
+[ext_resource type="Script" uid="uid://1bmm75ttef6a" path="res://blueButton.gd" id="1_5xwir"]
+[ext_resource type="Texture2D" uid="uid://b5e3jsly75f8p" path="res://blueButton.png" id="1_api1d"]
+
+[node name="blueBookButton" type="Area2D"]
+script = ExtResource("1_5xwir")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 32)
+texture = ExtResource("1_api1d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(32, 40)
+polygon = PackedVector2Array(2, -18, 10, -10, -6, -10)

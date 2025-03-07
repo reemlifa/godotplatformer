@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://d24bjvretr1u5"]
+[gd_scene load_steps=2 format=3 uid="uid://b81bbfks6gf74"]
 
-[ext_resource type="Script" path="res://retrybutton.gd" id="1_3b662"]
+[ext_resource type="Script" uid="uid://b7s86qbs8j8jh" path="res://retrybutton.gd" id="1_3b662"]
 
 [node name="retryButton" type="Button"]
 offset_left = 40.0

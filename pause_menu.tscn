@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbebuf3pjsvfh"]
+[gd_scene load_steps=10 format=3 uid="uid://dxmiv5xo7jy4g"]
 
-[ext_resource type="Script" path="res://pause_menu.gd" id="1_bgi6r"]
-[ext_resource type="Shader" path="res://pausemenu.gdshader" id="1_l4u7x"]
-[ext_resource type="Texture2D" uid="uid://psjj2i6juano" path="res://Buttons/Play.png" id="3_4ee2r"]
-[ext_resource type="Texture2D" uid="uid://bt3cptfixcr3o" path="res://Buttons/RetryButton.png" id="4_g0mvx"]
-[ext_resource type="Texture2D" uid="uid://tvtni1j2nt61" path="res://Buttons/Close.png" id="4_kar0i"]
+[ext_resource type="Script" uid="uid://r4fw55q6b8kj" path="res://pause_menu.gd" id="1_bgi6r"]
+[ext_resource type="Shader" uid="uid://dunbovghwv5co" path="res://pausemenu.gdshader" id="1_l4u7x"]
+[ext_resource type="Texture2D" uid="uid://dsqdvom331ioi" path="res://Play.png" id="3_4ee2r"]
+[ext_resource type="Texture2D" uid="uid://bp5axa4vr5exi" path="res://RetryButton.png" id="4_g0mvx"]
+[ext_resource type="Texture2D" uid="uid://ci5amxtwk848k" path="res://Close.png" id="4_kar0i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ie6n8"]
 shader = ExtResource("1_l4u7x")
@@ -67,8 +67,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmtjl"]
 _data = {
-"RESET": SubResource("Animation_qbaka"),
-"blur": SubResource("Animation_6tt2t")
+&"RESET": SubResource("Animation_qbaka"),
+&"blur": SubResource("Animation_6tt2t")
 }
 
 [node name="PauseMenu" type="Control"]
@@ -99,24 +99,19 @@ grow_vertical = 2
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -568.0
-offset_top = -316.0
-offset_right = -288.0
-offset_bottom = 28.0
+layout_mode = 2
+offset_left = 515.354
+offset_top = 341.26
+offset_right = 544.354
+offset_bottom = 341.26
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4.05883, 1.83138)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+size_flags_stretch_ratio = 20.0
 theme_override_constants/separation = 10
 
 [node name="Button3" type="Button" parent="PanelContainer/VBoxContainer"]

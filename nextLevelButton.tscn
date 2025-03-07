@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7uqa5mq33466"]
+[gd_scene load_steps=2 format=3 uid="uid://cuf4ek3yecagb"]
 
-[ext_resource type="Script" path="res://nextLevelButton.gd" id="1_bi202"]
+[ext_resource type="Script" uid="uid://ca1eumk2fwwju" path="res://nextLevelButton.gd" id="1_bi202"]
 
 [node name="nextLevelButton" type="Button"]
 offset_right = 64.0
