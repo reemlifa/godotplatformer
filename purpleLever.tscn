@@ -1,25 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3biocxjry0a3"]
+[gd_scene load_steps=8 format=3 uid="uid://d3biocxjry0a3"]
 
-[ext_resource type="Script" uid="uid://dprs7ei0cq6ax" path="res://lever.gd" id="1_gxwkd"]
+[ext_resource type="Script" uid="uid://b5yeq386muwuo" path="res://purpleLever.gd" id="1_26qf5"]
 [ext_resource type="Texture2D" uid="uid://0ijxp6e07xml" path="res://purpleLever-Sheet.png" id="2_utnv4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vjtdg"]
-atlas = ExtResource("2_utnv4")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ema7d"]
-atlas = ExtResource("2_utnv4")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m6ct5"]
-atlas = ExtResource("2_utnv4")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gbtjp"]
-atlas = ExtResource("2_utnv4")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ydag3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_26qf5"]
 atlas = ExtResource("2_utnv4")
 region = Rect2(64, 0, 64, 64)
 
@@ -27,62 +11,60 @@ region = Rect2(64, 0, 64, 64)
 atlas = ExtResource("2_utnv4")
 region = Rect2(0, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6ct5"]
+atlas = ExtResource("2_utnv4")
+region = Rect2(128, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tb44"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vjtdg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ema7d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m6ct5")
+"texture": SubResource("AtlasTexture_26qf5")
 }],
-"loop": false,
-"name": &"left",
-"speed": 15.0
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gbtjp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ydag3")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5pvff")
 }],
 "loop": false,
-"name": &"right",
+"name": &"off",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6ct5")
+}],
+"loop": false,
+"name": &"on",
 "speed": 15.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4res2"]
-size = Vector2(32, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_avvh4"]
-size = Vector2(26, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26qf5"]
+size = Vector2(64, 24)
 
 [node name="purpleLever" type="Area2D"]
-position = Vector2(16, -96)
 collision_layer = 2
-script = ExtResource("1_gxwkd")
+script = ExtResource("1_26qf5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(16, 0)
+position = Vector2(32, 16)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1tb44")
-animation = &"right"
-frame = 2
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 8)
-shape = SubResource("RectangleShape2D_4res2")
+position = Vector2(32, 24)
+shape = SubResource("RectangleShape2D_26qf5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(16, 11)
-shape = SubResource("RectangleShape2D_avvh4")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-0.583334, -12.7875)
+scale = Vector2(1.0026, 1.24219)
+polygon = PackedVector2Array(8, 48, 8, 40, 16, 40, 24, 32, 40, 32, 48, 40, 56, 40, 56, 48)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

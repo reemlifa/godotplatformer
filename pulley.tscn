@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bpu3kp5jox2o3" path="res://pulley_wheel.png" id="2_myt62"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5sln2"]
-size = Vector2(40, 5)
+size = Vector2(45, 2.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqa3b"]
-size = Vector2(40, 5)
+size = Vector2(44.104, 1.14438)
 
 [node name="pulley" type="Node2D"]
 script = ExtResource("1_myt62")
@@ -16,13 +16,12 @@ script = ExtResource("1_myt62")
 [node name="pulley-platform1" type="AnimatableBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pulley-platform1"]
-position = Vector2(160, 120)
+position = Vector2(161, 139)
 shape = SubResource("RectangleShape2D_5sln2")
 
 [node name="Sprite2D" type="Sprite2D" parent="pulley-platform1"]
 texture_filter = 1
-position = Vector2(160, 128)
-scale = Vector2(1.21429, 1.5)
+position = Vector2(162, 144)
 texture = ExtResource("1_y5vpa")
 
 [node name="Area2D" type="Area2D" parent="pulley-platform1"]
@@ -30,33 +29,30 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="pulley-platform1/Area2D"]
-position = Vector2(32, 104)
-scale = Vector2(1, 1)
+position = Vector2(162, 128)
 shape = SubResource("RectangleShape2D_eqa3b")
 
 [node name="pulley-platform2" type="AnimatableBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pulley-platform2"]
-position = Vector2(32, 104)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_eqa3b")
-
-[node name="Sprite2D" type="Sprite2D" parent="pulley-platform2"]
-texture_filter = 1
-position = Vector2(32, 112)
-scale = Vector2(1.21429, 1.5)
-texture = ExtResource("1_y5vpa")
+position = Vector2(40, 0)
+scale = Vector2(0.996298, 1.00204)
 
 [node name="Area2D2" type="Area2D" parent="pulley-platform2"]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="pulley-platform2/Area2D2"]
-position = Vector2(160, 120)
+position = Vector2(67.2489, 127.739)
+scale = Vector2(1, 0.99728)
 shape = SubResource("RectangleShape2D_5sln2")
 
-[node name="Rope" type="Line2D" parent="."]
-points = PackedVector2Array(32, 48, 32, 0, 160, 0, 160, 104)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pulley-platform2"]
+position = Vector2(67.2489, 138.717)
+shape = SubResource("RectangleShape2D_eqa3b")
+
+[node name="Sprite2D" type="Sprite2D" parent="pulley-platform2"]
+texture_filter = 1
+position = Vector2(67.249, 143.707)
+texture = ExtResource("1_y5vpa")
 
 [node name="pulley_wheel1" type="Sprite2D" parent="."]
 texture_filter = 1

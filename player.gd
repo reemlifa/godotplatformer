@@ -7,10 +7,12 @@ const MAX_JUMPS = 2  # Max jumps (1 normal jump + 1 double jump)
 const CLIMB_SPEED = 100.0  # Speed when climbing the ladder
 const PUSH_FORCE = 200  # Force applied to push objects
 
+
 # Variables
 var jumps_left = MAX_JUMPS  # Track remaining jumps
 var is_on_ladder := false  # Track if the player is on a ladder
 var has_key = false  # Tracks if the player has the key
+var mass = 6
 
 @onready var animated_sprite = $Player  # Reference to the AnimatedSprite2D node
 

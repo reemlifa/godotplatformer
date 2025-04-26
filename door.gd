@@ -1,9 +1,19 @@
 extends StaticBody2D
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
+func _ready():
+	sprite.play("idle")
+
 func set_door_state(open: bool):
-	visible = !open  # Hide if open, show if closed
-	collision.set_deferred("disabled", open)  # Disable collision when open
-	print("Door is now", "Open" if open else "Closed")
+	if open:
+		sprite.play("moving")
+		await sprite.animation_finished  # Wait for the 'moving' animation to finish
+		sprite.play("done")  # Switch to empty frame to "remove" the book
+		visible = false
+		collision.set_deferred("disabled", true)
+	else:
+		visible = true
+		collision.set_deferred("disabled", false)
+		sprite.play("idle")

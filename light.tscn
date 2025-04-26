@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://l4hwnuhukmu0"]
+
+[ext_resource type="Texture2D" uid="uid://uoka46s56uf1" path="res://light.png" id="1_hdgcg"]
+[ext_resource type="Script" uid="uid://2b6iv70puy7h" path="res://light.gd" id="1_we4ua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_we4ua"]
+size = Vector2(32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qqhr"]
+atlas = ExtResource("1_hdgcg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdgcg"]
+atlas = ExtResource("1_hdgcg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njlvs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qqhr")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdgcg")
+}],
+"loop": false,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="light" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_we4ua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 32)
+shape = SubResource("RectangleShape2D_we4ua")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_njlvs")
+animation = &"on"
+
+[connection signal="body_entered" from="." to="." method="_on_Lightbulb_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Lightbulb_body_exited"]

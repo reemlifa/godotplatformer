@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj1mujggtgekb"]
+
+[ext_resource type="Script" uid="uid://da310croybl4m" path="res://raycast_host.gd" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://bmhxtihprud26" path="res://character_body_2d.gd" id="2_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(549, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RaycastHost" type="Node2D" parent="."]
+position = Vector2(56, 40)
+script = ExtResource("1_0e48y")
+
+[node name="IncidentRayCast" type="RayCast2D" parent="RaycastHost"]
+
+[node name="ReflectedRayCast" type="RayCast2D" parent="RaycastHost"]
+target_position = Vector2(14, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(280, 16)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(24, 88)
+script = ExtResource("2_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(136, -48)
+shape = SubResource("RectangleShape2D_q6r6c")

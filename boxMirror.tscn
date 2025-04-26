@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://co75my5vfv04l"]
+
+[ext_resource type="Texture2D" uid="uid://b1f8wms6li22x" path="res://boxMirror.png" id="1_3f5dy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_00t4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00t4i"]
+size = Vector2(21, 21)
+
+[node name="boxMirror" type="RigidBody2D"]
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_00t4i")
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_00t4i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(2.23937, 2.29287)
+texture = ExtResource("1_3f5dy")

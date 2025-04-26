@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqefovr5wdpry"]
+
+[ext_resource type="Texture2D" uid="uid://bpbidm724wltg" path="res://Idle.png" id="1_xd0xo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_okuj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2tbl"]
+size = Vector2(27, 27)
+
+[node name="box" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_okuj3")
+can_sleep = false
+lock_rotation = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(14, 13.5)
+scale = Vector2(1.35714, 1.375)
+texture = ExtResource("1_xd0xo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13.5, 13.5)
+shape = SubResource("RectangleShape2D_g2tbl")

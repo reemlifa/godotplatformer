@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://csh02weo587pe"]
+[gd_scene load_steps=6 format=3 uid="uid://csh02weo587pe"]
 
-[ext_resource type="PackedScene" uid="uid://cpqob4mcdtfdq" path="res://pinkBackground.tscn" id="1_62j37"]
-[ext_resource type="FontFile" uid="uid://b8lyiiniobnnv" path="res://LuckiestGuy-Regular.ttf" id="2_qnlny"]
+[ext_resource type="Script" uid="uid://bat3nd4lp1683" path="res://video_stream_player.gd" id="2_igs2m"]
+[ext_resource type="VideoStream" path="res://hey.ogv" id="2_wgsso"]
+[ext_resource type="Script" uid="uid://7s1cesc175um" path="res://sfx_button.gd" id="3_3pujl"]
 [ext_resource type="Script" uid="uid://dnu68anor2f7q" path="res://levelSelection.gd" id="3_3vx65"]
+[ext_resource type="Script" uid="uid://cf0l1hs0v768b" path="res://about_button.gd" id="3_igs2m"]
 
 [node name="mainmenu" type="Control"]
 layout_mode = 3
@@ -12,26 +14,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="background" parent="." instance=ExtResource("1_62j37")]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_wgsso")
+autoplay = true
+script = ExtResource("2_igs2m")
 
-[node name="Label" type="Label" parent="."]
+[node name="sfxButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 423.0
-offset_top = 233.0
-offset_right = 696.0
-offset_bottom = 288.0
-theme_override_fonts/font = ExtResource("2_qnlny")
-theme_override_font_sizes/font_size = 40
-text = "Play my game"
+offset_left = 640.0
+offset_top = 394.0
+offset_right = 916.0
+offset_bottom = 462.0
+flat = true
+script = ExtResource("3_3pujl")
 
-[node name="Levelsbutton" type="Button" parent="."]
+[node name="levelsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 423.0
-offset_top = 339.0
-offset_right = 678.0
-offset_bottom = 386.0
-text = "Start"
+offset_left = 164.0
+offset_top = 205.0
+offset_right = 435.0
+offset_bottom = 266.0
+flat = true
 icon_alignment = 1
 script = ExtResource("3_3vx65")
 
-[connection signal="pressed" from="Levelsbutton" to="Levelsbutton" method="_on_pressed"]
+[node name="aboutButton" type="Button" parent="."]
+offset_left = 401.0
+offset_top = 302.0
+offset_right = 678.0
+offset_bottom = 367.0
+flat = true
+script = ExtResource("3_igs2m")
+
+[connection signal="pressed" from="levelsButton" to="levelsButton" method="_on_pressed"]
+[connection signal="pressed" from="aboutButton" to="aboutButton" method="_on_pressed"]

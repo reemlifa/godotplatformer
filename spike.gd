@@ -1,5 +1,10 @@
 extends Node2D
 
+@onready var animated_sprite = $AnimatedSprite2D
+
+func _ready():
+	animated_sprite.play("wave")
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent() is CharacterBody2D:
 		# Ensure we call _reload_scene deferred, but after the frame is finished.

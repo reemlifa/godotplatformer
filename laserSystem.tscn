@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk0p2ra7g0jb6"]
+
+[ext_resource type="Texture2D" uid="uid://c82ywgy5kxaxc" path="res://laser-start.png" id="1_rmrgq"]
+[ext_resource type="Script" uid="uid://da310croybl4m" path="res://raycast_host.gd" id="2_rmrgq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy8fo"]
+size = Vector2(9, 20)
+
+[node name="LaserSystem" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-14, 2)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(21, 11)
+rotation = 1.57075
+scale = Vector2(0.984375, 0.984375)
+texture = ExtResource("1_rmrgq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(10, 9)
+shape = SubResource("RectangleShape2D_yy8fo")
+
+[node name="RaycastHost" type="Node2D" parent="."]
+position = Vector2(30, 29)
+script = ExtResource("2_rmrgq")
+
+[node name="IncidentRayCast" type="RayCast2D" parent="RaycastHost"]
+
+[node name="ReflectedRayCast" type="RayCast2D" parent="RaycastHost"]
+target_position = Vector2(14, 0)
+
+[node name="IncidentLine" type="Line2D" parent="RaycastHost"]
+points = PackedVector2Array(0, 0, 14, 0)
+width = 2.0
+default_color = Color(0.557398, 0.0665701, 0.363057, 1)
+
+[node name="ReflectedLine" type="Line2D" parent="RaycastHost"]
+points = PackedVector2Array(0, 44, 0, 0)
+width = 2.0
+default_color = Color(0.372327, 0.311981, 0.0847171, 1)

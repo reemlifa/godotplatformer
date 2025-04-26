@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctgaihurxd88"]
+[gd_scene load_steps=15 format=3 uid="uid://ctgaihurxd88"]
 
 [ext_resource type="Script" uid="uid://cqjbmck28dpyq" path="res://player.gd" id="1_cvtl6"]
 [ext_resource type="Texture2D" uid="uid://dioeoeq46pinp" path="res://creature-sheet.png" id="2_b1rmm"]
@@ -71,14 +71,26 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xwy1"]
-size = Vector2(32, 32)
+size = Vector2(24, 28)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5p3l"]
 radius = 7.99999
 
+[sub_resource type="Gradient" id="Gradient_onrkg"]
+colors = PackedColorArray(0.954789, 0.937033, 0.950147, 1, 0, 0, 0, 0.870588)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i3pqv"]
+gradient = SubResource("Gradient_onrkg")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 collision_mask = 3
+floor_stop_on_slope = false
 script = ExtResource("1_cvtl6")
 
 [node name="Player" type="AnimatedSprite2D" parent="."]
@@ -91,6 +103,7 @@ animation = &"run"
 frame_progress = 0.528606
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_3xwy1")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -99,8 +112,11 @@ target_position = Vector2(0, 80)
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3.8147e-06, 0)
+position = Vector2(4.76837e-07, 0)
 scale = Vector2(3, 3.04)
 shape = SubResource("CircleShape2D_l5p3l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_i3pqv")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

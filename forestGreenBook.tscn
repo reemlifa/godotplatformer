@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://e56ebmi23fmv"]
+
+[ext_resource type="Texture2D" uid="uid://beo7t1v56taw6" path="res://forestGreen-sheet-Recovered.png" id="1_adrxe"]
+[ext_resource type="Script" uid="uid://bniydjet38rtj" path="res://forestGreenBook.gd" id="1_i1an2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1an2"]
+size = Vector2(48, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1x6x"]
+atlas = ExtResource("1_adrxe")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41jc2"]
+atlas = ExtResource("1_adrxe")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ech24"]
+atlas = ExtResource("1_adrxe")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddift"]
+atlas = ExtResource("1_adrxe")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a06fb"]
+atlas = ExtResource("1_adrxe")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwow8"]
+atlas = ExtResource("1_adrxe")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68u52"]
+atlas = ExtResource("1_adrxe")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn6n3"]
+atlas = ExtResource("1_adrxe")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y6hn"]
+atlas = ExtResource("1_adrxe")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5uktj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1x6x")
+}],
+"loop": false,
+"name": &"done",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41jc2")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ech24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddift")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a06fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwow8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68u52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn6n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y6hn")
+}],
+"loop": false,
+"name": &"moving",
+"speed": 20.0
+}]
+
+[node name="forestGreenBook" type="StaticBody2D"]
+script = ExtResource("1_i1an2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 65)
+shape = SubResource("RectangleShape2D_i1an2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(64, 64)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_5uktj")
+animation = &"idle"

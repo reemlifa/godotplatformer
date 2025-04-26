@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://81vi5ryipikq"]
+
+[ext_resource type="Script" uid="uid://d28afoohs2obl" path="res://laserDetector.gd" id="1_848ou"]
+[ext_resource type="Texture2D" uid="uid://ds2dqck3dnrva" path="res://laser-end.png" id="2_375aa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_375aa"]
+size = Vector2(6, 18)
+
+[node name="LaserDetector" type="StaticBody2D"]
+script = ExtResource("1_848ou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(185, 64)
+scale = Vector2(1.9953, 2)
+shape = SubResource("RectangleShape2D_375aa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(159, 63)
+rotation = -1.57246
+scale = Vector2(2, 2)
+texture = ExtResource("2_375aa")

@@ -11,7 +11,4 @@ func _on_pressed() -> void:
 	var scene_path = "res://mainmenu.tscn"  # Ensure this path matches your actual file
 
 	# Check if the scene exists before trying to load it
-	if ResourceLoader.exists(scene_path):
-		get_tree().change_scene_to_file(scene_path)
-	else:
-		print("Error: Scene not found at " + scene_path)
+	get_tree().change_scene_to_file(scene_path)

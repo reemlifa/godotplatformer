@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://c4yqhrv0fw6r5"]
+
+[ext_resource type="Script" uid="uid://bmgli1h64nynn" path="res://purpleBook.gd" id="1_s8bxr"]
+[ext_resource type="Texture2D" uid="uid://bw7rkvkaq6sle" path="res://purplebook-sheet.png" id="2_a2icv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_but52"]
+size = Vector2(21.625, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eto2"]
+atlas = ExtResource("2_a2icv")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx3ts"]
+atlas = ExtResource("2_a2icv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns6wn"]
+atlas = ExtResource("2_a2icv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjh7o"]
+atlas = ExtResource("2_a2icv")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u848a"]
+atlas = ExtResource("2_a2icv")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e643n"]
+atlas = ExtResource("2_a2icv")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngn72"]
+atlas = ExtResource("2_a2icv")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s25e"]
+atlas = ExtResource("2_a2icv")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lv0l"]
+atlas = ExtResource("2_a2icv")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jrmvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eto2")
+}],
+"loop": true,
+"name": &"done",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx3ts")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns6wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjh7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u848a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e643n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngn72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s25e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lv0l")
+}],
+"loop": false,
+"name": &"moving",
+"speed": 20.0
+}]
+
+[node name="purpleBook" type="StaticBody2D"]
+script = ExtResource("1_s8bxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29.1875, 24.0063)
+rotation = -0.00223419
+shape = SubResource("RectangleShape2D_but52")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 24)
+sprite_frames = SubResource("SpriteFrames_jrmvl")
+animation = &"moving"

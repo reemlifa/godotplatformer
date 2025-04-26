@@ -3,23 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://bpbidm724wltg" path="res://Idle.png" id="1_nh5m3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_okuj3"]
-friction = 0.7
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_842cg"]
-size = Vector2(50, 50)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2tbl"]
+size = Vector2(48, 48)
 
 [node name="box" type="RigidBody2D"]
-mass = 10.0
+mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_okuj3")
 can_sleep = false
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(16, 16)
-scale = Vector2(2.5, 2.5)
+position = Vector2(32, 32)
+scale = Vector2(2.28571, 2.33333)
 texture = ExtResource("1_nh5m3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 16)
-shape = SubResource("RectangleShape2D_842cg")
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_g2tbl")

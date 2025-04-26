@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://crk1yc8e5i6n5"]
+
+[ext_resource type="Texture2D" uid="uid://ihcn0cbkn5n2" path="res://pinkBook-sheet.png" id="1_cksnl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0phs7"]
+atlas = ExtResource("1_cksnl")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50cdl"]
+atlas = ExtResource("1_cksnl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5njw"]
+atlas = ExtResource("1_cksnl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xadh"]
+atlas = ExtResource("1_cksnl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hwww"]
+atlas = ExtResource("1_cksnl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1oua"]
+atlas = ExtResource("1_cksnl")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptf7r"]
+atlas = ExtResource("1_cksnl")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24eas"]
+atlas = ExtResource("1_cksnl")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l3oyw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0phs7")
+}],
+"loop": true,
+"name": &"done",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50cdl")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5njw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xadh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hwww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1oua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptf7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24eas")
+}],
+"loop": false,
+"name": &"moving",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km8on"]
+size = Vector2(46, 20)
+
+[node name="laser_PinkDoor" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(60, 69)
+scale = Vector2(1.86, 2.18)
+sprite_frames = SubResource("SpriteFrames_l3oyw")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(59, 70)
+shape = SubResource("RectangleShape2D_km8on")

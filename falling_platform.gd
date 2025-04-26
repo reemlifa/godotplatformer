@@ -3,7 +3,7 @@ extends StaticBody2D
 @onready var anim_sprite = $AnimatedSprite2D  # Reference to AnimatedSprite2D
 
 @export var fall_delay: float = 2  # Time before falling
-@export var fall_distance: float = 250 # How far it falls
+@export var fall_distance: float = 520 # How far it falls
 @export var fall_duration: float = 1.5  # Time it takes to fall
 
 var has_fallen = false  # Track if it has already fallen

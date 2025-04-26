@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://xr7ph7cmwgvb"]
+
+[ext_resource type="Texture2D" uid="uid://d870vs1fqx3h" path="res://redBackground.png" id="1_pp48r"]
+[ext_resource type="Texture2D" uid="uid://cynqeo2jnxpqp" path="res://Back.png" id="2_h6umi"]
+[ext_resource type="FontFile" uid="uid://dpugddfmd05y3" path="res://PressStart2P-Regular.ttf" id="2_k56y8"]
+[ext_resource type="Script" uid="uid://21p0tb5nxout" path="res://back_button.gd" id="3_sx25x"]
+
+[node name="about" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_pp48r")
+
+[node name="backButton" type="Button" parent="TextureRect"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_direction = 1
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 110.0
+offset_bottom = 112.0
+icon = ExtResource("2_h6umi")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_sx25x")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 296.0
+offset_top = 304.0
+offset_right = 856.0
+offset_bottom = 344.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_k56y8")
+theme_override_font_sizes/font_size = 40
+text = "COMING SOON..."

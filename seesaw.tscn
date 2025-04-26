@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://jsngqb8u0qrj"]
+
+[ext_resource type="Script" uid="uid://duft6rynrwtqy" path="res://seesaw_plank.gd" id="1_8xinp"]
+[ext_resource type="Texture2D" uid="uid://b1a7gipijpt6t" path="res://seesaw.png" id="2_xc2ik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xinp"]
+size = Vector2(54.5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lv8p"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc2ik"]
+size = Vector2(17.25, 7)
+
+[node name="Seesaw" type="Node2D"]
+
+[node name="SeesawPlank" type="RigidBody2D" parent="."]
+script = ExtResource("1_8xinp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeesawPlank"]
+position = Vector2(-0.25, -0.5)
+shape = SubResource("RectangleShape2D_8xinp")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="SeesawPlank"]
+node_a = NodePath("../../SeesawPivot")
+node_b = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="SeesawPlank"]
+texture_filter = 1
+position = Vector2(0.500001, 0)
+scale = Vector2(0.598214, 1)
+texture = ExtResource("2_xc2ik")
+
+[node name="SeesawPivot" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeesawPivot"]
+shape = SubResource("RectangleShape2D_2lv8p")
+
+[node name="LeftArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea"]
+position = Vector2(18, -8)
+shape = SubResource("RectangleShape2D_xc2ik")
+
+[node name="RightArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RightArea"]
+position = Vector2(-18.625, -8)
+shape = SubResource("RectangleShape2D_xc2ik")
